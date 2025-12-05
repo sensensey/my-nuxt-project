@@ -1,18 +1,13 @@
 <template>
   <header class="w-full bg-white">
 
-    <!-- ============================= -->
-    <!-- 📱 MOBILE NAVBAR -->
-    <!-- ============================= -->
     <div class="flex items-center justify-between px-4 py-4 border-b md:hidden">
       <!-- Logo (text olarak bırakıldı) -->
       <NuxtLink to="/" class="text-2xl font-bold text-green-600">
         Logo
       </NuxtLink>
 
-      <!-- Sağdaki ikonlar -->
       <div class="flex items-center gap-12">
-        <!-- Search icon (arama barını aç/kapat) -->
         <button
           class="text-2xl text-gray-600"
           @click="mobileSearchOpen = !mobileSearchOpen"
@@ -20,7 +15,6 @@
           🔍
         </button>
 
-        <!-- Cart icon -->
         <NuxtLink to="/checkout" class="relative text-2xl text-gray-700">
           🛒
           <span
@@ -30,14 +24,12 @@
           </span>
         </NuxtLink>
 
-        <!-- Hamburger -->
         <button @click="menuOpen = true" class="text-3xl text-gray-700 leading-none">
           ☰
         </button>
       </div>
     </div>
 
-    <!-- 📱 Mobil arama barı (ikon tıklanınca açılıyor) -->
     <div v-if="mobileSearchOpen" class="px-4 py-2 border-b md:hidden bg-gray-50">
       <div class="relative">
         <input
@@ -53,14 +45,12 @@
       </div>
     </div>
 
-    <!-- 📱 MOBILE SLIDE-IN MENU -->
     <div
       v-if="menuOpen"
       class="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden"
       @click.self="menuOpen = false"
     >
       <div class="w-64 h-full bg-white shadow-xl p-4 absolute right-0 top-0 animate-slideRight">
-        <!-- Close Button -->
         <button @click="menuOpen = false" class="text-3xl text-gray-700 mb-4">
           ✕
         </button>
@@ -96,19 +86,14 @@
       </div>
     </div>
 
-    <!-- ============================= -->
-    <!-- 🖥 DESKTOP NAVBAR (AYNI KALDI) -->
-    <!-- ============================= -->
     <div class="hidden md:block">
       <div
         class="max-w-[1250px] mx-auto grid grid-cols-[200px_1fr_250px] items-center py-4 px-4 gap-6"
       >
-        <!-- Logo -->
         <NuxtLink to="/" class="text-2xl font-bold text-green-600">
           Logo
         </NuxtLink>
 
-        <!-- Search Bar -->
         <div class="relative">
           <input
             type="text"
@@ -122,7 +107,6 @@
           </span>
         </div>
 
-        <!-- User + Cart -->
         <div class="flex items-center justify-end space-x-4 text-sm">
           <span class="text-gray-500">
             Hello, <span class="font-medium text-gray-700">User User</span>
@@ -148,7 +132,6 @@
         </div>
       </div>
 
-      <!-- DESKTOP CATEGORY NAV (AYNEN) -->
       <nav>
         <div class="max-w-[1250px] mx-auto px-4 py-3">
           <div

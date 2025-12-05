@@ -1,22 +1,18 @@
 <template>
   <section class="w-full">
 
-    <!-- HERO WRAPPER -->
     <div
       class="relative max-w-[1250px] mx-auto px-0 md:px-4 py-0 md:py-16
              min-h-[340px] md:h-[500px] flex items-center overflow-hidden swipe-area"
     >
 
-      <!-- BACKGROUND IMAGE -->
       <img
         :src="slides[current].image"
         class="absolute inset-0 w-full h-full object-cover"
       />
 
-      <!-- OPTIONAL OVERLAY -->
       <div class="absolute inset-0 bg-white/10"></div>
 
-      <!-- 📱 MOBILE CONTENT -->
       <div
         class="absolute bottom-6 px-4 w-full text-center md:hidden"
       >
@@ -38,7 +34,6 @@
           SHOP NOW
         </button>
 
-        <!-- DOTS -->
         <div class="flex justify-center space-x-2 mt-4">
           <span
             v-for="(dot, i) in slides.length"
@@ -49,7 +44,6 @@
         </div>
       </div>
 
-      <!-- 🖥 DESKTOP CONTENT (AYNI KALDI) -->
       <div
         class="relative z-20 hidden md:flex flex-row items-center justify-between w-full px-8"
       >
@@ -83,7 +77,6 @@
         <div class="hidden md:block w-[300px]"></div>
       </div>
 
-      <!-- LEFT ARROW (ONLY DESKTOP) -->
       <button
         @click="prevSlide"
         :disabled="isFirst"
@@ -96,7 +89,6 @@
         ‹
       </button>
 
-      <!-- RIGHT ARROW (ONLY DESKTOP) -->
       <button
         @click="nextSlide"
         :disabled="isLast"
@@ -151,7 +143,6 @@ function prevSlide() {
   if (!isFirst.value) current.value--;
 }
 
-// 📱 Swipe (kaydırarak geçme)
 onMounted(() => {
   const slider = document.querySelector(".swipe-area");
 
@@ -168,10 +159,8 @@ onMounted(() => {
     const diff = endX - startX;
 
     if (diff < -50) {
-      // sola kaydır → sonraki slide
       nextSlide();
     } else if (diff > 50) {
-      // sağa kaydır → önceki slide
       prevSlide();
     }
   });
